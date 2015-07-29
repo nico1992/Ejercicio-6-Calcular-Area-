@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Trabajando con Processing</title>
+<script src="processing.js"></script>
+<script src="processing.min.js"></script>
+</head>
+<body>
+<h1>EJERCICIO 6</h1>
+<canvas data-processing-sources="Ejercicio_6_en_processing.pjs"></canvas>
+<script>
+	int[] miArray = new int[4];
+void drawTarget(int blx1,int bly1,int trx1,int try1,int  blx2,int bly2,int trx2,int try2){
+  if(blx1>blx2){
+    miArray[0]=blx1;
+  }
+  else miArray[0]=blx2;
+  if(bly1>bly2){
+    miArray[1]=bly1;
+  }
+  else miArray[1]=bly2;
+  if(trx1<trx2){
+    miArray[2]=trx1;
+  }
+  else miArray[2]=trx2;
+  if (try1<try2){
+    miArray[3]=try1;
+  }
+  else miArray[3]=try2;
+
+  /*
+  if(===null||===undefined){
+    return 0;
+  }
+
+  if(>2147483647){
+    return -1;
+  }*/
+}
+void setup(){
+  size(1000,600);
+ 
+}
+void draw() {
+   background(33,33,33);
+drawTarget(0,2,5,10,  3,1,20,15) ;
+int xa=miArray[2]-miArray[0];
+int ya=miArray[3]-miArray[1];
+int area= xa *ya;
+println("area: "+area);
+fill(random(255), random(255), random(255));
+
+rect(miArray[0]*20, miArray[1]*20, miArray[2]*20, miArray[3]*20);
+fill(255, 255, 255);
+text("area= "+area, mouseX,20);
+}
+</script>
+</body>
+</html>
